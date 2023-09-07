@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc -S $CFILE -o $((cut -c-2 $cFILE)).o
+gcc -S $CFILE
