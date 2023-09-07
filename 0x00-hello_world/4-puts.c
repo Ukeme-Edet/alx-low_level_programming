@@ -2,6 +2,7 @@
 
 /**
  * main - Program Entry
+ * Return: 0 if the program is succesful
  */
 int main(void)
 {
