@@ -13,6 +13,7 @@ int main(void)
 		for (j = i + 1; j < 58; j++)
 		{
 			putchar(i);
+			putchar(j);
 			if (i == 56 && j == 57)
 				continue;
 			putchar(44);
