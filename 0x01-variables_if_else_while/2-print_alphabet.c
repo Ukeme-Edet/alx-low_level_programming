@@ -12,4 +12,5 @@ int main(void)
 		putchar(i);
 	} while (i++ < 122);
 	putchar(10);
+	return (0);
 }
