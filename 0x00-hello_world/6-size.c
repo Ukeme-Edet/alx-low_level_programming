@@ -12,10 +12,10 @@ int main(void)
 	long long int lglgit;
 	float ft;
 
-	printf("Size of a char: %d byte(s)\n", sizeof(cr));
-	printf("Size of an int: %d byte(s)\n", sizeof(it));
-	printf("Size of a long int: %d byte(s)\n", sizeof(lgit));
-	printf("Size of a long long int: %d byte(s)\n", sizeof(lglgit));
-	printf("Size of a float: %d byte(s)\n", sizeof(ft));
+	printf("Size of a char: %d byte(s)\n", (int) sizeof(cr));
+	printf("Size of an int: %d byte(s)\n", (int) sizeof(it));
+	printf("Size of a long int: %d byte(s)\n", (int) sizeof(lgit));
+	printf("Size of a long long int: %d byte(s)\n", (int) sizeof(lglgit));
+	printf("Size of a float: %d byte(s)\n", (int) sizeof(ft));
 	return (0);
 }
