@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * print_to_98 - Prints all integer numbers from n to 98
@@ -8,27 +9,11 @@ void print_to_98(int n)
 {
 	while (n != 98)
 	{
-		if (n < 0)
-		{
-			if (-n > 9)
-			{
-				_putchar(-n / 10 + '0');
-			}
-			_putchar(-n % 10 + '0');
+		printf(n);
+		if (n < 98)
 			n++;
-		}
 		else
-		{
-			if (n > 9)
-			{
-				_putchar(n / 10 + '0');
-			}
-			_putchar(n % 10 + '0');
-			if (n > 98)
-				n--;
-			else
-				n++;
-		}
+			n--;
 		_putchar(',');
 		_putchar(' ');
 	}
