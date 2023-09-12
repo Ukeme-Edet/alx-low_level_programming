@@ -5,12 +5,12 @@
  */
 void jack_bauer(void)
 {
-	int time, h, s;
+	int time, h, m;
 
-	for (i = 0; i < 1440; i++)
+	for (time = 0; time < 1440; time++)
 	{
-		h = i / 60;
-		m = i % 60;
+		h = time / 60;
+		m = time % 60;
 		_putchar(h / 10 + '0');
 		_putchar(h % 10 + '0');
 		_putchar(':');
