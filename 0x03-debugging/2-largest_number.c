@@ -10,20 +10,20 @@
 
 int largest_number(int a, int b, int c)
 {
-	int largest;
+	int temp;
 
-	if (a > b && a > c)
+	if (c > b)
 	{
-		largest = a;
+		temp = b;
+		b = c;
+		c = temp;
 	}
-	else if (b > a && b > c)
+	if (b > a)
 	{
-		largest = b;
-	}
-	else
-	{
-		largest = c;
+		temp = a;
+		a = b;
+		b = temp;
 	}
 
-	return (largest);
+	return (a);
 }
