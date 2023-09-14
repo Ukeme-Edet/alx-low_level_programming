@@ -9,4 +9,5 @@ void print_numbers(void)
 
 	while (i++ < 58)
 		_putchar(i);
+	_putchar('\n');
 }
