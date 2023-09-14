@@ -7,7 +7,7 @@
  */
 int main(void)
 {
-	long long int num = 612852475143;
+	long int num = 612852475143;
 	long int i, max = (long int) sqrt(num);
 	long int ans = 0;
 
@@ -16,6 +16,6 @@ int main(void)
 		if (num % i == 0)
 			ans = i;
 	}
-	printf("%ld", ans);
+	printf("%ld\n", ans);
 	return (0);
 }
