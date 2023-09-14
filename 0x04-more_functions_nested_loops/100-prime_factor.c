@@ -8,15 +8,16 @@
 int main(void)
 {
 	long int num = 612852475143;
-	long int i;
+	long int i, ans, max = (long int) sqrt(num);
 
-	for (i = 2; i < num / 2; i++)
+	for (i = 2; i < max + 1 && num > 1; i++)
 	{
-		if (num % i == 0)
+		while (num % i == 0)
 		{
-			printf("%ld\n", num / i);
-			break;
+			ans = i;
+			num /= i;
 		}
 	}
+	printf("%ld\n", ans);
 	return (0);
 }
