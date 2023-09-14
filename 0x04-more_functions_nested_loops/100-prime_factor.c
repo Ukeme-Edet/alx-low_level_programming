@@ -8,7 +8,7 @@
 int main(void)
 {
 	long int num = 612852475143;
-	long int i, ans, max = (long int) sqrt(num);
+	long int i, ans, max = num / 2;
 
 	for (i = 2; i < max + 1 && num > 1; i++)
 	{
