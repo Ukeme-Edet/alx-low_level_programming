@@ -10,7 +10,7 @@ void more_numbers(void)
 	while (i--)
 	{
 		j = 0;
-		while (j < 15)
+		while (j++ < 15)
 		{
 			if (j > 9)
 				_putchar('1');
