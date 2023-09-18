@@ -3,7 +3,8 @@
 
 int _atoi(char *s)
 {
-	int i = 0, printed = 0, ans = 0, ncount = 0;
+	int i = 0, printed = 0, ncount = 0;
+	unsigned ans = 0;
 
 	while (s[i])
 	{
@@ -25,6 +26,6 @@ int _atoi(char *s)
 		i++;
 	}
 	if (ncount % 2 == 1)
-		ans *= -1;
+		return (ans * -1);
 	return (ans);
 }
