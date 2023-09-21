@@ -30,7 +30,6 @@ char *cap_string(char *s)
 			if (s[i] == seps[j] && s[i + 1])
 			{
 				s[i + 1] = cap_char(s[i + 1]);
-				i += 1;
 			}
 		}
 		i++;
