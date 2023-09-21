@@ -19,10 +19,11 @@ char cap_char(char c)
  */
 char *cap_string(char *s)
 {
-	int i = 0, j;
+	unsigned int i = 0, j;
 	char seps[] = {' ', '\t', '\n', ',', ';', '.', '!', '?', '"', '(', ')'
 		, '{', '}'};
 
+	s[0] = cap_char(s[0]);
 	while (s[i])
 	{
 		for (j = 0; j < 13; j++)
