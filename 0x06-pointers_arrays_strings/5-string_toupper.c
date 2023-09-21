@@ -11,7 +11,7 @@ char *string_toupper(char *s)
 
 	while (s[i])
 	{
-		if (s[i] < 97)
+		if (s[i] > 64 && s[i] < 90)
 			s[i] = s[i] - 65 + 'A';
 		i++;
 	}
