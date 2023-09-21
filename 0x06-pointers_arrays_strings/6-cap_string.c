@@ -1,9 +1,15 @@
 #include "main.h"
 
-char cap_char(char c) {
+/**
+ * cap_char - Capitalizes a character
+ * @c: The character to be capitalised
+ * Return: The capitalised character
+ */
+char cap_char(char c)
+{
 	if (c > 96 && c < 123)
 		return (c - 'a' + 'A');
-	return c;
+	return (c);
 }
 
 /**
