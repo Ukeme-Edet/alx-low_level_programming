@@ -1,5 +1,11 @@
 #include "main.h"
 
+char cap_char(char c) {
+	if (c > 96 && c < 123)
+		return (c - 'a' + 'A');
+	return c;
+}
+
 /**
  * cap_string - Capitalizes all words of a string
  * @s: The string to be manipulated :)
@@ -17,13 +23,11 @@ char *cap_string(char *s)
 		{
 			if (s[i] == seps[j] && s[i + 1])
 			{
-				if (s[i + 1] > 96 && s[i + 1] < 123)
-				{
-					s[i + 1] = s[i + 1] - 'a' + 'A';
-					i++;
-				}
+				s[i + 1] = cap_char(s[i + 1]);
+				i += 1;
 			}
 		}
+		i++;
 	}
 	return (s);
 }
