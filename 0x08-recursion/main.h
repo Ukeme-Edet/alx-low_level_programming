@@ -14,5 +14,6 @@ int is_div(int n, int i);
 int is_palindrome(char *s);
 int rstrlen(char *s);
 int checkp(char *s, int i, int sl);
+int wildcmp(char *s1, char *s2);
 
 #endif /* MAIN_H */
