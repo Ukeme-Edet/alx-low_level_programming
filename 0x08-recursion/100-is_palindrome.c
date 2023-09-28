@@ -12,13 +12,7 @@ int is_palindrome(char *s)
 	if (s[1] == '\0' || s[0] == '\0')
 		return (1);
 	strl = rstrlen(s);
-	while (i <= strl / 2)
-	{
-		if (s[i] != s[strl - i - 1])
-			return (0);
-		i++;
-	}
-	return (1);
+	return (checkp(s, 0, strl));
 }
 
 /**
@@ -31,4 +25,21 @@ int rstrlen(char *s)
 	if (s[0])
 		return (1 + rstrlen(&s[1]));
 	return (0);
+}
+
+/**
+ * checkp - Checks if a sting is a palindrome recursively
+ * @s: The string to be checked
+ * @i: The current index
+ * @sl: The length of the string
+ * Return: 1 if the string is a palindrome else 0
+ */
+int checkp(char *s, int i, int sl)
+{
+	if (i == (sl / 2) + 1)
+		return (1);
+	else if (s[i] != s[sl - i - 1])
+		return (0);
+	else
+		return (checkp(s, i + 1, sl));
 }
