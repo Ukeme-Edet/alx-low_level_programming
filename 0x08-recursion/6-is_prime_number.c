@@ -24,5 +24,5 @@ int is_div(int n, int i)
 		return (1);
 	else if (n % i == 0)
 		return (0);
-	return (is_div(n, i + i));
+	return (is_div(n, i + 1));
 }
