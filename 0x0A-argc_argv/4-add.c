@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 	while (i < argc)
 	{
 		next = atoi(argv[i]);
-		if (next)
+		if (next > 0)
 			res += next;
 		else
 		{
