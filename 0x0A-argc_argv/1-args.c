@@ -7,8 +7,9 @@
  * @argv: The array of pointers to stings of arguments passed
  * Return: 0 if the program is successful
  */
-int main(int argc, char *argv[] __atribute__((unused)))
+int main(int argc, char *argv[])
 {
-	printf("%d", argc - 1);
+	(void)argv;
+	printf("%d\n", argc - 1);
 	return (0);
 }
