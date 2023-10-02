@@ -1,6 +1,6 @@
 #include "main.c"
 #include <stdio.h>
-#include <Stdlib.h>
+#include <stdlib.h>
 
 /**
  * main - The program's entry point :)
