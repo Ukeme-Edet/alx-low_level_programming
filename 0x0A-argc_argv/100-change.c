@@ -10,7 +10,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int cents, change = 0, i, dns = {25, 10, 5, 2, 1};
+	int cents, change = 0, i, dns[5] = {25, 10, 5, 2, 1};
 
 	if (argc != 2)
 	{
