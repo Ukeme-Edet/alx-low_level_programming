@@ -10,18 +10,24 @@
  */
 int main(int argc, char *argv[])
 {
-	int i = 1, res = 0, next;
+	int i = 1, res = 0, next, j;
 
 	while (i < argc)
 	{
-		next = atoi(argv[i]);
-		if (next > 0)
-			res += next;
-		else
+		j = 0;
+		while (argv[i][j])
 		{
-			printf("Error\n");
-			return (1);
+			if (argv[i][j] > '9' || argv[i][j] < '0')
+			{
+				printf("Error\n");
+				return (1);
+			}
+			j++;
 		}
+		next = atoi(argv[i]);
+		if (next < 0)
+			continue;
+		res += next;
 		i++;
 	}
 	printf("%d\n", res);
