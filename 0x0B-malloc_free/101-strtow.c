@@ -25,7 +25,7 @@ char **strtow(char *str)
 			i++;
 	}
 	ws = (char **)malloc(sizeof(char *) * (wc + 1));
-	if (!ws)
+	if (!ws || wc == 0)
 		return (NULL);
 	ws = copy_words(ws, str, wc);
 	return (ws);
