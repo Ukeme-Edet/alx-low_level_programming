@@ -3,13 +3,13 @@
 
 /**
  * strtow - Splits a string into words
- * @str: The string to split
- * Return: Pointer to an array of strings
+ * @str: The string to be split
+ * Return: A pointer to the array of words
  */
 char **strtow(char *str)
 {
-	char **ws;
-	int i = 0, wc = 0;
+	int i = 0, word_count = 0;
+	char **words;
 
 	if (!str || !*str)
 		return (NULL);
@@ -17,59 +17,69 @@ char **strtow(char *str)
 	{
 		if (str[i] != ' ')
 		{
-			wc++;
+			word_count++;
 			while (str[i] != ' ' && str[i])
 				i++;
 		}
 		else
 			i++;
 	}
-	ws = (char **)malloc(sizeof(char *) * (wc + 1));
-	if (!ws || wc == 0)
+	if (!word_count)
 		return (NULL);
-	ws = copy_words(ws, str, wc);
-	return (ws);
+	words = (char **)malloc((word_count + 1) * sizeof(char *));
+	if (!words)
+		return (NULL);
+	words = copy_words(words, str, word_count);
+	return (words);
 }
 
 /**
- * copy_words - Copies words from a string to an array of strings
- * @ws: The array of strings
- * @str: The string to split
- * @wc: The number of words in the string
- * Return: Pointer to the array of strings
+ * copy_words - Copies the words into the array
+ * @words: The array to be copied into
+ * @str: The string to be copies from
+ * @word_count: The number of words to be copied
+ * Return: A pointer to the array of words copied
  */
-char **copy_words(char **ws, char *str, int wc)
+char **copy_words(char **words, char *str, int word_count)
 {
-	int i = 0, j, s;
+	int i = 0, j = 0, s = 0, word_len = 0;
 	char *word;
 
-	while (i < wc && str[j])
+	while (i < word_count)
 	{
-		if (str[j] != ' ' && str[j])
+		while (str[j])
 		{
-			s = j;
-			while (str[j] != ' ' && str[j] != '\0')
-				j++;
-			word = (char *)malloc(sizeof(char) * (j - s + 1));
-			if (!word)
+			if (str[j] != ' ')
 			{
-				for (i = 0; i < wc; i++)
-					free(ws[i]);
-				free(ws);
-				return (NULL);
+				word_len = 0;
+				s = j;
+				while (str[j] != ' ' && str[j])
+				{
+					word_len++;
+					j++;
+				}
+				word = (char *)malloc((word_len + 1) *
+									  sizeof(char));
+				if (!word)
+				{
+					while (--i > -1)
+						free(words[i]);
+					free(words);
+					return (NULL);
+				}
+				j = s;
+				while (str[j] != ' ' && str[j])
+				{
+					word[j - s] = str[j];
+					j++;
+				}
+				word[j - s] = '\0';
+				words[i] = word;
+				i++;
 			}
-			j = s;
-			while (word && str[j] != ' ' && str[j] != '\0')
-			{
-				word[j - s] = str[j];
-				j++;
-			}
-			word[j - s] = '\0';
-			ws[i] = word;
-			i++;
+			j++;
 		}
-		j++;
 	}
-	ws[i] = NULL;
-	return (ws);
+	words[i] = NULL;
+	return (words);
 }

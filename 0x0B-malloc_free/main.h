@@ -10,6 +10,6 @@ void free_grid(int **grid, int height);
 char *argstostr(int ac, char **av);
 int _strlen(char *s);
 char **strtow(char *s);
-char **copy_words(char **ws, char *str, int wc);
+char **copy_words(char **words, char *str, int word_count);
 
 #endif /* MAIN_H */
