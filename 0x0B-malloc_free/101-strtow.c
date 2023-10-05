@@ -77,7 +77,8 @@ char **copy_words(char **words, char *str, int word_count)
 				words[i] = word;
 				i++;
 			}
-			j++;
+			else
+				j++;
 		}
 	}
 	words[i] = NULL;
