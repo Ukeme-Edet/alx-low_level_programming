@@ -37,7 +37,6 @@ char **strtow(char *str)
  * copy_words - Copies the words into the array
  * @words: The array to be copied into
  * @str: The string to be copies from
- * @word_count: The number of words to be copied
  * Return: A pointer to the array of words copied
  */
 char **copy_words(char **words, char *str)
