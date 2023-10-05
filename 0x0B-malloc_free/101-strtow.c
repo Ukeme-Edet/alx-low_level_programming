@@ -29,7 +29,7 @@ char **strtow(char *str)
 	words = (char **)malloc((word_count + 1) * sizeof(char *));
 	if (!words)
 		return (NULL);
-	words = copy_words(words, str, word_count);
+	words = copy_words(words, str);
 	return (words);
 }
 
@@ -40,7 +40,7 @@ char **strtow(char *str)
  * @word_count: The number of words to be copied
  * Return: A pointer to the array of words copied
  */
-char **copy_words(char **words, char *str, int word_count)
+char **copy_words(char **words, char *str)
 {
 	int i = 0, j = 0, s = 0, word_len = 0;
 	char *word;
