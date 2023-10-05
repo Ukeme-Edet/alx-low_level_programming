@@ -48,7 +48,7 @@ char **copy_words(char **ws, char *str, int wc)
 		if (str[j] != ' ' && str[j])
 		{
 			s = j;
-			while (str[j] != ' ' && str[j])
+			while (str[j] != ' ' && str[j] != '\0')
 				j++;
 			word = (char *)malloc(sizeof(char) * (j - s + 1));
 			if (!word)
@@ -59,7 +59,7 @@ char **copy_words(char **ws, char *str, int wc)
 				return (NULL);
 			}
 			j = s;
-			while (word && str[j] != ' ' && str[j])
+			while (word && str[j] != ' ' && str[j] != '\0')
 			{
 				word[j - s] = str[j];
 				j++;
