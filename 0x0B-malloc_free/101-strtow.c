@@ -11,6 +11,8 @@ char **strtow(char *str)
 	char **ws;
 	int i = 0, wc = 0;
 
+	if (!str || !*str)
+		return (NULL);
 	while (str[i])
 	{
 		if (str[i] != ' ')
