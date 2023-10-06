@@ -9,13 +9,11 @@
  */
 int *array_range(int min, int max)
 {
-	int *p = malloc((max - min + 1) * sizeof(int)), i = 0;
+	int *p, i = 0;
 
 	if (min > max)
-	{
-		free(p);
 		return (NULL);
-	}
+	p = malloc((max - min + 1) * sizeof(int));
 	while (p && i < max - min + 1)
 	{
 		p[i] = min + i;
