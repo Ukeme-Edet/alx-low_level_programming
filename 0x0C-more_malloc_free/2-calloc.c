@@ -13,7 +13,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	unsigned int i = 0;
 	char *ptr = p;
 
-	if (!p || nmeb == 0 || size == 0)
+	if (!p || nmemb == 0 || size == 0)
 		return (NULL);
 	while (i < nmemb * size)
 		ptr[i++] = 0;
