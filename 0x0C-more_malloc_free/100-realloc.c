@@ -30,6 +30,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	{
 		char *cp = p;
 		char *cptr = ptr;
+
 		for (i = 0; i < new_size && i < old_size; i++)
 			cp[i] = cptr[i];
 		free(ptr);
