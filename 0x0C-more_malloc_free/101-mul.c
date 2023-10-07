@@ -11,10 +11,12 @@ int main(int argc, char **argv)
 {
 	char *num1, *num2, *product;
 
-	if (argc != 3)
+	if (argc != 3 || !argv[1] || !argv[2])
 		error();
 	num1 = argv[1];
 	num2 = argv[2];
+	if (!is_digit(num1) || !is_digit(num2))
+		error();
 	product = mul(num1, num2);
 	if (!product)
 		error();
@@ -30,6 +32,24 @@ void error(void)
 {
 	print_s("Error");
 	exit(98);
+}
+
+/**
+ * is_digit - Checks if a string is a digit
+ * @s: The string to be checked
+ * Return: 1 if the string is a digit, else 0
+ */
+int is_digit(char *s)
+{
+	int i = 0;
+
+	while (s[i])
+	{
+		if (s[i] < '0' || s[i] > '9')
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
 /**

@@ -11,5 +11,6 @@ void print_s(char *s);
 char *mul(char *num1, char *num2);
 int _strlen(char *s);
 void error(void);
+int is_digit(char *s);
 
 #endif /* MAIN_H */
