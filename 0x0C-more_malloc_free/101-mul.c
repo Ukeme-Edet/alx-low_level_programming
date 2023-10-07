@@ -1,6 +1,5 @@
 #include "main.h"
 #include <stdlib.h>
-#include "_putchar.c"
 
 /**
  * main - A program that multiplies two numbers together
@@ -25,6 +24,7 @@ int main(int argc, char **argv)
 		return (98);
 	}
 	print_s(product);
+	return (0);
 }
 
 /**
