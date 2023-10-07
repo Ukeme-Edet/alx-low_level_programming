@@ -1,6 +1,5 @@
 #include "main.h"
 #include <stdlib.h>
-#include "_putchar.c"
 
 /**
  * main - A program that multiplies two numbers together
