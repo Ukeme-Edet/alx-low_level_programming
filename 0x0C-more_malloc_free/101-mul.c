@@ -95,15 +95,16 @@ char *mul(char *num1, char *num2)
 		if (carry)
 			product[i + j + 1] += carry;
 	}
-	k = 0;
-	for (i = 0; i < len1 + len2; i++)
+	for (k = 0; k < len1 + len2; k++)
 	{
-		if (product[i] != '0')
-			k = 1;
-		if (k)
-			product[k++] = product[i];
+		if (product[k] != '0')
+			break;
 	}
-	product[k] = '\0';
+	if (k == len1 + len2)
+		k--;
+	for (i = 0; i < len1 + len2; i++, k++)
+		product[i] = product[k];
+	product[i] = '\0';
 	return (product);
 }
 
