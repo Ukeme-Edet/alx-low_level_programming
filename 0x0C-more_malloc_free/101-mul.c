@@ -10,6 +10,7 @@
 int main(int argc, char **argv)
 {
 	char *num1, *num2, *product;
+
 	if (argc != 3)
 	{
 		print_s("Error\n");
