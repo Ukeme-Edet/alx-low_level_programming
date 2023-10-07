@@ -25,6 +25,7 @@ int main(int argc, char **argv)
 		return (98);
 	}
 	print_s(product);
+	free(product);
 	return (0);
 }
 
@@ -54,7 +55,7 @@ char *mul(char *num1, char *num2)
 
 	len1 = _strlen(num1);
 	len2 = _strlen(num2);
-	product = malloc(sizeof(char) * (len1 + len2));
+	product = malloc(sizeof(char) * (len1 + len2 + 1));
 	if (!product)
 		return (NULL);
 	for (i = 0; i < len1 + len2; i++)
@@ -71,15 +72,7 @@ char *mul(char *num1, char *num2)
 			product[i + j + 1] = (sum % 10) + '0';
 		}
 		if (carry)
-		{
-			while (carry)
-			{
-				sum = carry + (product[i + j + 1] - '0');
-				carry = sum / 10;
-				product[i + j + 1] = (sum % 10) + '0';
-				j--;
-			}
-		}
+			product[i + j + 1] = (carry % 10) + '0';
 	}
 	if (product[0] == '0')
 	{
