@@ -12,21 +12,24 @@ int main(int argc, char **argv)
 	char *num1, *num2, *product;
 
 	if (argc != 3)
-	{
-		print_s("Error\n");
-		return (98);
-	}
+		error();
 	num1 = argv[1];
 	num2 = argv[2];
 	product = mul(num1, num2);
 	if (!product)
-	{
-		print_s("Error\n");
-		return (98);
-	}
+		error();
 	print_s(product);
 	free(product);
 	return (0);
+}
+
+/**
+ * error - Prints out an error message and exits the program
+ */
+void error(void)
+{
+	print_s("Error");
+	exit(98);
 }
 
 /**
@@ -60,28 +63,27 @@ char *mul(char *num1, char *num2)
 		return (NULL);
 	for (i = 0; i < len1 + len2; i++)
 		product[i] = '0';
-	for (i = len1 - 1; i >= 0; i--)
+	for (i = len1 - 1; i > -1; i--)
 	{
 		carry = 0;
 		n1 = num1[i] - '0';
-		for (j = len2 - 1; j >= 0; j--)
+		for (j = len2 - 1; j > -1; j--)
 		{
 			n2 = num2[j] - '0';
-			sum = (n1 * n2) + (product[i + j + 1] - '0') + carry;
+			sum = (n1 * n2) + carry;
 			carry = sum / 10;
-			product[i + j + 1] = (sum % 10) + '0';
+			product[i + j + 1] += (sum % 10);
 		}
 		if (carry)
-			product[i + j + 1] = (carry % 10) + '0';
+			product[i + j + 1] += carry;
 	}
-	if (product[0] == '0')
+	k = 0;
+	for (i = 0; i < len1 + len2; i++)
 	{
-		while (product[k] == '0')
-			k++;
-		for (i = 0; i < len1 + len2; i++, k++)
-			product[i] = product[k];
-		product[i] = '\0';
-		product = _realloc(product, len1 + len2, _strlen(product) + 1);
+		if (product[i] != '0')
+			k = 1;
+		if (k)
+			product[k++] = product[i];
 	}
 	return (product);
 }
@@ -98,42 +100,4 @@ int _strlen(char *s)
 	while (s[i])
 		i++;
 	return (i);
-}
-
-/**
- * _realloc - Allocates a memory block using malloc and free
- * @ptr: A pointer to the previously allocated block
- * @old_size: The size in bytes of the allocated space for ptr
- * @new_size: The size in bytes for the new memory block
- * Return: A pointer to the reallocated memory if successful, else NULL
- */
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
-{
-	void *p;
-	unsigned int i;
-
-	if (old_size == new_size)
-		return (ptr);
-	if (!ptr)
-	{
-		p = malloc(new_size);
-		return (p ? p : NULL);
-	}
-	if (!new_size && ptr)
-	{
-		free(ptr);
-		return (NULL);
-	}
-	p = malloc(new_size);
-	if (p)
-	{
-		char *cp = p;
-		char *cptr = ptr;
-
-		for (i = 0; i < new_size && i < old_size; i++)
-			cp[i] = cptr[i];
-		free(ptr);
-		return (p);
-	}
-	return (NULL);
 }

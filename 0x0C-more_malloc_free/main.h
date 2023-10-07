@@ -10,5 +10,6 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 void print_s(char *s);
 char *mul(char *num1, char *num2);
 int _strlen(char *s);
+void error(void);
 
 #endif /* MAIN_H */
