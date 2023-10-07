@@ -11,11 +11,9 @@ int main(int argc, char **argv)
 {
 	char *num1, *num2, *product;
 
-	if (argc != 3 || !argv[1] || !argv[2])
-		error();
 	num1 = argv[1];
 	num2 = argv[2];
-	if (!is_digit(num1) || !is_digit(num2))
+	if (!is_digit(num1) || !is_digit(num2) || argc != 3)
 		error();
 	product = mul(num1, num2);
 	if (!product)
@@ -105,6 +103,7 @@ char *mul(char *num1, char *num2)
 		if (k)
 			product[k++] = product[i];
 	}
+	product[k] = '\0';
 	return (product);
 }
 
