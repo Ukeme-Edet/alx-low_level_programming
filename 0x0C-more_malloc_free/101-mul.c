@@ -71,7 +71,15 @@ char *mul(char *num1, char *num2)
 			product[i + j + 1] = (sum % 10) + '0';
 		}
 		if (carry)
-			product[i + j + 1] = (carry % 10) + '0';
+		{
+			while (carry)
+			{
+				sum = carry + (product[i + j + 1] - '0');
+				carry = sum / 10;
+				product[i + j + 1] = (sum % 10) + '0';
+				j--;
+			}
+		}
 	}
 	if (product[0] == '0')
 	{
