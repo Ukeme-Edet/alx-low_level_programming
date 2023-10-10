@@ -10,35 +10,47 @@
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	unsigned int sl = 0;
-	char *new_name, *new_owner;
 	dog_t *new_dog = malloc(sizeof(dog_t));
-
-	while (name[sl])
-		sl++;
-	new_name = malloc((sl  + 1) * sizeof(char));
-	sl = 0;
-	while (owner[sl])
-		sl++;
-	new_owner = malloc((sl + 1) * sizeof(char));
-	if (!new_dog || !new_name || !new_owner || !name || !owner)
+	new_dog->name = malloc((_strlen(name) + 1) * sizeof(char));
+	new_dog->owner = malloc((_strlen(owner) + 1) * sizeof(char));
+	if (!new_dog || !new_dog->name || !new_dog-> owner)
 		return (NULL);
-	sl = 0;
-	while (name[sl])
-	{
-		new_name[sl] = name[sl];
-		sl++;
-	}
-	new_name[sl] = '\0';
-	new_dog->name = new_name;
-	sl = 0;
-	while (owner[sl])
-	{
-		new_owner[sl] = owner[sl];
-		sl++;
-	}
-	new_owner[sl] = '\0';
-	new_dog->owner = owner;
+	new_dog->name = _strcpy(new_dog->name, name);
+	new_dog->owner = _strcpy(new_dog->owner, owner);
 	new_dog->age = age;
 	return (new_dog);
+}
+
+/**
+ * _strlen - Gets the length of a string
+ * @s: Pointer to the string
+ * Return: The length of the string
+ */
+int _strlen(char *s)
+{
+	int i = 0;
+
+	while (s[i])
+		i++;
+	return (i);
+}
+
+/**
+ * _strcpy - Copies a string
+ * @dest: The string to be copied into
+ * @src: The string to be copied from
+ * Return: A pointer to the copied string
+ */
+char *_strcpy(char *dest, char *src)
+{
+	int i = 0;
+
+	while (src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	i++;
+    return (dest);
 }
