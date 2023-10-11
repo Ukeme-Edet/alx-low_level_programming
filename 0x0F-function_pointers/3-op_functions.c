@@ -52,5 +52,9 @@ int op_div(int a, int b)
  */
 int op_mod(int a, int b)
 {
+	if (b < 0)
+		b = -b;
+	if (a < 0)
+		a = -a;
 	return (a % b);
 }
