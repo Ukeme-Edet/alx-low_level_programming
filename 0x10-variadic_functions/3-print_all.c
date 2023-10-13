@@ -10,7 +10,7 @@ void print_all(const char * const format, ...)
 {
 	va_list fargs;
 	unsigned long int i = 0;
-	char *sep = ", ";
+	char *sep = ", ", str;
 
 	va_start(fargs, format);
 	while (format[i])
@@ -29,7 +29,10 @@ void print_all(const char * const format, ...)
 				printf("%f%s", va_arg(fargs, double), sep);
 				break;
 			case 's':
-				printf("%s%s", va_arg(fargs, char*), sep);
+				str = va_arg(fargs, char*);
+				if (!str)
+					str = "(nil)";
+				printf("%s%s", str, sep);
 				break;
 		}
 		i++;
