@@ -10,14 +10,12 @@ void print_all(const char * const format, ...)
 {
 	va_list fargs;
 	unsigned long int i = 0;
-	char *sep;
+	char *sep = ", ";
 
 	va_start(fargs, format);
 	while (format[i])
 	{
-		if (format[i + 1])
-			sep = ", ";
-		else
+		if (!format[i + 1])
 			sep = "";
 		switch (format[i])
 		{
