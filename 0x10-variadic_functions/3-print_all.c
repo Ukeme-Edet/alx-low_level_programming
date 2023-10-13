@@ -13,7 +13,7 @@ void print_all(const char * const format, ...)
 	char *sep = ", ", *str;
 
 	va_start(fargs, format);
-	while (format[i])
+	while (format && format[i])
 	{
 		if (!format[i + 1])
 			sep = "";
