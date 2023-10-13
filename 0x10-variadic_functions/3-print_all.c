@@ -10,7 +10,7 @@ void print_all(const char * const format, ...)
 {
 	va_list fargs;
 	unsigned long int i = 0;
-	char *sep = ", ", str;
+	char *sep = ", ", *str;
 
 	va_start(fargs, format);
 	while (format[i])
