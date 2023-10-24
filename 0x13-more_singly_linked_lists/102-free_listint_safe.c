@@ -13,7 +13,6 @@ size_t free_listint_safe(listint_t **h)
 	size_t nodes, index;
 
 	nodes = looped_listint_len(*h);
-
 	if (nodes == 0)
 	{
 		for (; *h != NULL; nodes++)
@@ -23,7 +22,6 @@ size_t free_listint_safe(listint_t **h)
 			*h = tmp;
 		}
 	}
-
 	else
 	{
 		for (index = 0; index < nodes; index++)
@@ -35,8 +33,6 @@ size_t free_listint_safe(listint_t **h)
 
 		*h = NULL;
 	}
-
 	h = NULL;
-
 	return (nodes);
 }
