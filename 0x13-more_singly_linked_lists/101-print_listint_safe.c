@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include "lists.h"
 
 /**
@@ -10,7 +10,7 @@
 size_t print_listint_safe(const listint_t *head)
 {
 	size_t count = 0;
-	const listint_t *temp = head, *temp2;
+	const listint_t *temp = head, *temp2 = head;
 
 	if (!head)
 		exit(98);
@@ -18,13 +18,13 @@ size_t print_listint_safe(const listint_t *head)
 	{
 		printf("[%p] %d\n", (void *)temp, temp->n);
 		count++;
-		temp2 = temp;
 		temp = temp->next;
-		if (temp2 <= temp)
+		if (temp >= temp2)
 		{
 			printf("-> [%p] %d\n", (void *)temp, temp->n);
 			break;
 		}
+		temp2 = temp2->next;
 	}
 	return (count);
 }
