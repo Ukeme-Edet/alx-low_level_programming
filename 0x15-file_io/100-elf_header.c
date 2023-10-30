@@ -132,7 +132,8 @@ void print_osabi(unsigned char (*e_ident)[EI_NIDENT])
  */
 void print_abiversion(unsigned char (*e_ident)[EI_NIDENT])
 {
-	printf("  ABI Version:                       %d\n", (*e_ident)[EI_ABIVERSION]);
+	printf("  ABI Version:                       %d\n", (*e_ident)
+															[EI_ABIVERSION]);
 }
 
 /**
@@ -174,87 +175,6 @@ void print_entry(unsigned long int e_entry)
 }
 
 /**
- * print_phoff - prints the program header offset
- * @e_phoff: the program header offset
- */
-void print_phoff(unsigned long int e_phoff)
-{
-	printf("  Start of program headers:          %lu (bytes into file)\n", e_phoff);
-}
-
-/**
- * print_shoff - prints the section header offset
- * @e_shoff: the section header offset
- */
-void print_shoff(unsigned long int e_shoff)
-{
-	printf("  Start of section headers:          %lu (bytes into file)\n", e_shoff);
-}
-
-/**
- * print_flags - prints the flags of the file
- * @e_flags: the flags of the file
- */
-void print_flags(unsigned int e_flags)
-{
-	printf("  Flags:                             0x%x\n", e_flags);
-}
-
-/**
- * print_ehsize - prints the size of the file header
- * @e_ehsize: the size of the file header
- */
-void print_ehsize(unsigned int e_ehsize)
-{
-	printf("  Size of this header:               %u (bytes)\n", e_ehsize);
-}
-
-/**
- * print_phentsize - prints the size of a program header
- * @e_phentsize: the size of a program header
- */
-void print_phentsize(unsigned int e_phentsize)
-{
-	printf("  Size of program headers:           %u (bytes)\n", e_phentsize);
-}
-
-/**
- * print_phnum - prints the number of program headers
- * @e_phnum: the number of program headers
- */
-void print_phnum(unsigned int e_phnum)
-{
-	printf("  Number of program headers:         %u\n", e_phnum);
-}
-
-/**
- * print_shentsize - prints the size of a section header
- * @e_shentsize: the size of a section header
- */
-void print_shentsize(unsigned int e_shentsize)
-{
-	printf("  Size of section headers:           %u (bytes)\n", e_shentsize);
-}
-
-/**
- * print_shnum - prints the number of section headers
- * @e_shnum: the number of section headers
- */
-void print_shnum(unsigned int e_shnum)
-{
-	printf("  Number of section headers:         %u\n", e_shnum);
-}
-
-/**
- * print_shstrndx - prints the section header string table index
- * @e_shstrndx: the section header string table index
- */
-void print_shstrndx(unsigned int e_shstrndx)
-{
-	printf("  Section header string table index: %u\n", e_shstrndx);
-}
-
-/**
  * print_elf_header - prints the ELF header
  * @e_hdr: pointer to the ELF header struct
  */
@@ -269,15 +189,6 @@ void print_elf_header(Elf64_Ehdr *e_hdr)
 	print_abiversion(&(e_hdr->e_ident));
 	print_type(e_hdr->e_type);
 	print_entry(e_hdr->e_entry);
-	print_phoff(e_hdr->e_phoff);
-	print_shoff(e_hdr->e_shoff);
-	print_flags(e_hdr->e_flags);
-	print_ehsize(e_hdr->e_ehsize);
-	print_phentsize(e_hdr->e_phentsize);
-	print_phnum(e_hdr->e_phnum);
-	print_shentsize(e_hdr->e_shentsize);
-	print_shnum(e_hdr->e_shnum);
-	print_shstrndx(e_hdr->e_shstrndx);
 }
 
 /**
@@ -317,7 +228,7 @@ int main(int argc, char *argv[])
 		e_hdr.e_ident[EI_MAG2] != ELFMAG2 ||
 		e_hdr.e_ident[EI_MAG3] != ELFMAG3)
 	{
-		dprintf(STDERR_FILENO, "Error: Not an ELF file - it has the wrong magic bytes at the start\n");
+		dprintf(STDERR_FILENO, "Error: Not an ELF file %s\n", argv[1]);
 		exit(98);
 	}
 
