@@ -5,10 +5,12 @@ def is_palindrome(n: int) -> bool:
 
 
 def largest_palindrome_product(n: int) -> list[int]:
+    palindromes = []
     for i in range(10**n - 1, 10**(n - 1) - 1, -1):
         for j in range(10**n - 1, 10**(n - 1) - 1, -1):
             if is_palindrome(i * j):
-                return [i, j, i * j]
+                palindromes.append([i, j, i * j])
+    return max(palindromes, key=lambda x: x[2])
 
 
 def main() -> None:
