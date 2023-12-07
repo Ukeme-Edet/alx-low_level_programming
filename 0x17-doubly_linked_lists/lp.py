@@ -15,7 +15,7 @@ def largest_palindrome_product(n: int) -> list[int]:
 
 def main() -> None:
     with open("102-result", "w") as f:
-        f.write(str(largest_palindrome_product(3)[2]) + "\n")
+        f.write(str(largest_palindrome_product(3)[2]))
         f.close()
 
 
